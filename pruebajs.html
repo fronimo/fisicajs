@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My first Three.js app</title>
+		
+		
+		<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			alert("funciona!");
+		});
+		</script>
+
+		<!--
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		//-->
+		<style>
+			body { margin: 0; }
+			canvas { width: 50%; height: 50% }
+		</style>
+		<script type="text/javascript">
+				
+				$(document).ready(function(){
+				    $("button").click(function(){
+				        $("p").hide();
+				    });
+				});
+			</script>
+	</head>
+	<body>
+		
+		
+		<div>
+			<script src="three.min.js"></script>
+			<script>
+				var scene = new THREE.Scene();
+				var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+				
+
+				var renderer = new THREE.WebGLRenderer();
+				//renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( 300, 300 );
+				document.body.appendChild( renderer.domElement );
+
+				var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+				var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+				var cube = new THREE.Mesh( geometry, material );
+				scene.add( cube );
+
+				camera.position.z = 5;
+				camera.position.x = 2;
+				camera.position.y = 2;
+				
+
+				var render = function () {
+					requestAnimationFrame( render );
+
+					cube.rotation.x += 0.1;
+					cube.rotation.y += 0.1;
+
+					renderer.render(scene, camera);
+				};
+
+				render();
+			</script>
+		</div>
+
+		<div>
+			<canvas id="myCanvas" width: '100px' height: "50px" style="border:1px solid #d3d3d3;">
+					Your browser does not support the HTML5 canvas tag.</canvas>
+			<script src="jcanvas.min.js"></script>
+			
+
+			<h2>This is a heading</h2>
+
+
+			
+			
+			<script type="text/javascript">
+				function draww(){
+					$('myCanvas').drawArc({
+					  fillStyle: 'black',
+					  x: 100, y: 100,
+					  radius: 50
+					});
+				}
+
+					draww();
+
+				//var c = document.getElementById("myCanvas");
+				//var ctx = c.getContext("2d");
+				//ctx.beginPath();
+				//ctx.arc(80, 75, 30, 0, 2 * Math.PI);
+				//ctx.stroke();
+
+				 
+			</script>
+			
+			
+		</div>
+
+		<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<button>Click me</button>
+
+	</body>
+</html>
